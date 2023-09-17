@@ -35,7 +35,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/citizen', [CitizenControlleroller::class, 'citizen'])->name('citizen');
+Route::get('/citizen', [CitizenController::class, 'citizen'])->name('citizen');
 Route::get('/attorneys', [AttorneyController::class, 'attorney'])->name('attorneys');
 Route::get('/lawyer', [LawyersController::class, 'lawyer'])->name('lawyer');
 
@@ -57,6 +57,14 @@ Route::middleware('auth')->group(function () {
 
     Route::get("/fileCase", [CaseController::class, 'toFileCase'])->name('case.file');
     Route::post("/fileCase/new/{id}", [CaseController::class, 'store'])->name('case.new.file');
+
+    Route::get("/hireLawyer/{id}", [LawyerController::class, 'hire'])->name('hirelawyer');
+
+    Route::get("/lawyer", function () {
+        return view('lawyer', [
+            'lawyer' => App\Models\User::where('type', "lawyer")->get()
+        ]);
+    })->name('tolawyer');
 
     Route::get('/logout', [LogoutController::class, 'perform'])->name('logout.perform');
 });

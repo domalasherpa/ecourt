@@ -11,7 +11,7 @@
             <div class="hero-content">
                 <h1 class="hero-title">Experienced Legal Representation</h1>
                 <p class="hero-subtitle">We are committed to providing top-notch legal services.</p>
-                <a href="#" class="cta-btn">Schedule a Consultation</a>
+                <a href="/login" class="cta-btn">Schedule a Consultation</a>
             </div>
         </div>
     </section>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Models\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cases;
 use App\Models\Expertise;
 use App\Models\Lawyer;
 use Illuminate\Http\Request;
@@ -26,7 +27,6 @@ class LawyerController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -40,9 +40,13 @@ class LawyerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function hire(int $id)
     {
-        //
+        Cases::where('clientId', Auth::user()->id)->orwhere('status', '!==', 'pending')
+            ->first()->update(['lawyerId' => $id]);
+        Lawyer::where('id', $id)->first()->update(['availability' => 0]);
+
+        return redirect()->route('tolawyer');
     }
 
     /**
@@ -77,8 +81,8 @@ class LawyerController extends Controller
 
     public function toExpertise()
     {
-        $expertise = Expertise::all();
-        return view('expertise', ['id' => Auth::user()->id, 'expertise' => $expertise]);
+        $expertise = Expertise::where('id', Auth::user()->id)->get();
+        return redirect('/dashboard')->with(['id' => Auth::user()->id, 'expertise' => $expertise]);
     }
 
     public function addExpertise(Request $request, int $id)
@@ -89,7 +93,7 @@ class LawyerController extends Controller
                 'expertise' => $request->expertise,
             ]
         );
-        $expertise = Expertise::all();
-        return view('expertise', ['id' => Auth::user()->id, 'expertise' => $expertise]);
+        $expertise = Expertise::where('id', Auth::user()->id)->get();
+        return redirect('/dashboard')->with(['id' => Auth::user()->id, 'expertise' => $expertise]);
     }
 }

@@ -72,12 +72,15 @@ class RegisteredUserController extends Controller
             ]);
         } else if ($request->type == 'lawyer') {
             $lawyer = Lawyer::create([
-                'userId' => $user->id,
-                'barLicenseId' => $request->barLicense_id,
+                'id' => $user->id,
+                'barLicenseId' => $request->lawyer_id,
                 'experience' => intval($request->experience),
                 'fee' => 0,
+                'availability' => 1,
             ]);
         }
+
+
 
         return redirect(RouteServiceProvider::HOME);
     }

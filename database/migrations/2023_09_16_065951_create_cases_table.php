@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('cases', function (Blueprint $table) {
             $table->id();
             $table->integer('clientId');
-            $table->integer('lawyerId');
+            $table->integer('lawyerId')->nullable()->default(null);
             $table->string('dispute_type');
             $table->string('description');
             $table->string('status')->default('pending');

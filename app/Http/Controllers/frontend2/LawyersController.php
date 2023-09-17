@@ -12,7 +12,6 @@ class LawyerController extends Controller
     public function lawyer()
     {
         $citizens = Citizen::all();
-
         return view('lawyer', compact('citizens'));
     }
 }

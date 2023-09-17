@@ -16,6 +16,7 @@
             <th class="px-4 py-3">Title</th>
             <th class="px-4 py-3">Description</th>
             <th class="px-4 py-3">Status</th>
+
         </tr>
         @php
             $i = 1;
@@ -25,8 +26,13 @@
                 <td class="px-4 py-3">{{ $i++ }}</td>
                 <td class="px-4 py-3">{{ $c->dispute_type }}</td>
                 <td class="px-4 py-3">{{ $c->description }}</td>
-                <td class="px-4 py-3">{{ ($c->lawyerId == null) ? 'Not Taken' : 'On Going' }}</td>
-
+                <td class="px-4 py-3">
+                    @if ($c->lawyerId == null)
+                        {{ 'Not Taken' }}
+                    @else
+                        {{ 'Taken' }}
+                    @endif
+                </td>
             </tr>
         @endforeach
 

@@ -16,11 +16,13 @@
 
 <body class="bg-gray-100">
     <!-- Header Section -->
-    <header class="bg-blue-900 text-white py-4" style="padding-left: 200px; padding-right: 200px;">
+    <header class="bg-blue-900 text-white py-0" style="padding-left: 200px; padding-right: 200px;">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="text-2xl font-semibold">Law Firm Logo</div>
+            <div class="">
+                <img src="{{url('imgs/logo_white.png')}}" alt="Logo" height="65px" width="65px">
+            </div>
             <nav class="space-x-4">
-                <a href="{{ url('citizen') }}" class="hover:text-gray-300">Home</a>
+                <a href="{{ url('home') }}" class="hover:text-gray-300">Home</a>
                 <a href="{{ url('attorneys') }}" class="hover:text-gray-300">Attorneys</a>
                 <a href="#" class="hover:text-gray-300">Contact</a>
                 @auth

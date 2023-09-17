@@ -19,7 +19,7 @@
                                     <option value="Land Dispute">Land Dispute</option>
                                     <option value="Domestic Violence">Domestic Violence</option>
                                     <option value="Divorce Specialist">Divorce Specialist</option>
-                                    <option value="Crimnal Law">Crimnal Law</option>
+                                    <option value="Crimnal Law">Criminal Law</option>
                                 </select>
                             </div>
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailwind Admin Template</title>
+    <title> Cyber Legal Partners </title>
     <meta name="author" content="David Grzyb">
     <meta name="description" content="">
 
@@ -109,7 +109,7 @@
         <!-- Desktop Header -->
         <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
             <div class="w-1/2">
-            <h1 class="font-bold text-black text-xl">E-Legal Solutions</h1>
+            <h1 class="font-bold text-black text-xl">Cyber Legal Partners</h1>
             </div>
             <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
                 <button @click="isOpen = !isOpen"

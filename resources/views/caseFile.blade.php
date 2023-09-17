@@ -7,7 +7,7 @@
                 <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white">
                     <div class="flex-auto p-5 lg:p-10">
                         <h4 class="text-2xl mb-4 text-black font-semibold">
-                            Have a suggestion?
+                            Add a New Case
                         </h4>
                         <form id="feedbackForm" action="{{ route('case.new.file', ['id' => Auth::user()->id]) }}"
                             method="POST">
