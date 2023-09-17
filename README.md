@@ -1,66 +1,110 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Cyber Legal Partners - E-Governance Laravel App
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Cyber Legal Partners is an E-Governance Laravel application that aims to connect citizens with lawyers for legal advice and assistance. This application provides three distinct modes: Admin, Citizen, and Lawyers. The Admin serves as a super user, overseeing the system's operations. Citizens can file cases and hire lawyers, while Lawyers can register themselves with their verified Bar License Number.
 
-## About Laravel
+## Table of Contents
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Admin Mode](#admin-mode)
+  - [Citizen Mode](#citizen-mode)
+  - [Lawyer Mode](#lawyer-mode)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact Information](#contact-information)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Installation
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+To install and set up the Cyber Legal Partners application, follow these steps:
 
-## Learning Laravel
+1. Clone this repository to your local machine:
+   ```
+   git clone https://github.com/your-username/cyber-legal-partners.git
+   ```
+2. Navigate to the project directory:
+   ```
+   cd 4-bit-Adder
+   ```
+3. Install PHP dependencies using Composer:
+   ```
+   composer install
+   ```
+   
+4. Create a copy of the `.env.example` file and rename it to `.env`. Update the configuration settings, including the database connection details and any other necessary settings.
+5. Generate an application key:
+   ```
+   php artisan key:generate
+   ```
+6. Run database migrations and seed the initial data:
+   ```
+   php artisan migrate --seed
+   ```
+7. Start the Laravel development server:
+   ```
+   php artisan serve
+   ```
+9. Access the application in your web browser at http://localhost:8000.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Usage
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Cyber Legal Partners offers three distinct modes for users: Admin, Citizen, and Lawyers. Each mode has its specific functionalities and access rights.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Admin Mode
 
-## Laravel Sponsors
+- **Access**: Admin mode is accessible to super users with administrative privileges.
+- **Functionality**:
+  - Manage and monitor the entire system.
+  - Create and manage accounts for Lawyers and Citizens.
+  - View and manage case records.
+  - Verify Lawyer accounts by validating their Bar License Number.
+  - Perform system maintenance tasks.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Citizen Mode
 
-### Premium Partners
+- **Access**: Accessible to registered citizens.
+- **Functionality**:
+  - Create and submit legal cases.
+  - Search for and hire lawyers for legal assistance.
+  - Track the progress of their cases.
+  - Communicate with hired lawyers through the platform.
+  - View their case history.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### Lawyer Mode
+
+- **Access**: Accessible to registered lawyers with verified Bar License Numbers.
+- **Functionality**:
+  - Register and manage their lawyer accounts.
+  - Receive case invitations from citizens.
+  - Accept or decline case invitations.
+  - Communicate with citizens and handle their legal cases.
+  - Update their profile and availability.
+
+## Configuration
+
+### Environment Variables
+
+To configure the Cyber Legal Partners application, update the following environment variables in your `.env` file:
+
+- `APP_NAME`: The name of your application.
+- `APP_ENV`: The application environment (e.g., development, production).
+- `DB_CONNECTION`: Database connection (e.g., mysql, sqlite).
+- `DB_HOST`: Database host.
+- `DB_PORT`: Database port.
+- `DB_DATABASE`: Database name.
+- `DB_USERNAME`: Database username.
+- `DB_PASSWORD`: Database password.
+- `MAIL_*`: Configuration settings for sending email notifications.
+- `...` (Add any additional environment variables specific to your application)
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+We welcome contributions from the community to improve Cyber Legal Partners. To contribute:
 
-## Code of Conduct
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them with clear messages.
+4. Push your branch to your forked repository.
+5. Create a pull request to the main repository.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Please follow our [contributing guidelines](CONTRIBUTING.md) for more details.
