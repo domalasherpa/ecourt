@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('lawyerId');
             $table->string('dispute_type');
             $table->string('description');
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

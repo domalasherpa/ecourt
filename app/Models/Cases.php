@@ -13,5 +13,6 @@ class Cases extends Model
         'lawyerId',
         'dispute_type',
         'description',
+        'status',
     ];
 }

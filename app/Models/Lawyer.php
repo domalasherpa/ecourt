@@ -9,9 +9,11 @@ class Lawyer extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'userId',
+        'id',
         'barLicenseId',
         'experience',
+        'fee',
+        'availability',
         'updated_at',
         'created_at',
     ];

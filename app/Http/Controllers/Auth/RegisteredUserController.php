@@ -34,20 +34,20 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
         //validate the request
-        
-        // $validation = $request->validate( [
+
+        // $validation = $request->validate([
         //     'name' => ['required', 'string', 'max:255'],
         //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         //     'phoneNum' => ['required', 'string', 'max:10'],
         //     'type' => ['required', 'string', 'max:255'],
-        //     // 'citizenship_id' => ['required_if:type,==,citizen', 'string', 'max:255'],
-        //     'barLicense_id' => ['required_if:type,==,lawyer', 'string', 'max:255'],
-        //     'experience' => ['required_if:type,==,lawyer', 'string', 'max:255'],
+        //     'citizenship_id' => ['string', 'max:255', 'nullable'],
+        //     'barLicense_id' => ['string', 'max:255', 'nullable'],
+        //     'experience' => ['string', 'max:255', 'nullable'],
         //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
         // ]);
-        
-        
+
         $user = User::create([
             'name' => $request->name,
             'phoneNum' => $request->phoneNum,
@@ -58,28 +58,26 @@ class RegisteredUserController extends Controller
             'remember_token' => Str::random(10),
         ]);
 
-        // if ($user- != null) {
-        //fetch the user id of the user that is just created
-        $user_id = User::where('email', $request->email)->first()->id;
-
-        if ($request->type == 'citizen') {
-            $citizen = Citizen::create([
-                'userId' => $user_id,
-                'citizenship_id' => $request->citizenship_id,
-            ]);
-            
-        } else if ($request->type == 'lawyer') {
-            $lawyer = Lawyer::create([
-                'userId' => $user_id,
-                'barLicenseId' => $request->barLicense_id,
-                'experience' => intval($request->experience),
-            ]);
-        }
-        // }
-
         event(new Registered($user));
 
         Auth::login($user);
+
+        //fetch the user id of the user that is just created
+        // $user_id = User::where('email', $request->email)->first()->id;
+
+        if ($request->type == 'citizen') {
+            $citizen = Citizen::create([
+                'userId' => $user->id,
+                'citizenship_id' => $request->citizenship_id,
+            ]);
+        } else if ($request->type == 'lawyer') {
+            $lawyer = Lawyer::create([
+                'userId' => $user->id,
+                'barLicenseId' => $request->barLicense_id,
+                'experience' => intval($request->experience),
+                'fee' => 0,
+            ]);
+        }
 
         return redirect(RouteServiceProvider::HOME);
     }

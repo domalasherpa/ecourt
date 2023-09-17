@@ -12,9 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lawyers', function (Blueprint $table) {
-            $table->integer('userId');
+            $table->integer('id');
             $table->string('barLicenseId');
             $table->integer('experience');
+            $table->integer('fee');
+            $table->boolean('availability')->default(1);
             $table->timestamps();
         });
     }

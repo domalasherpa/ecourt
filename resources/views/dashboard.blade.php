@@ -1,17 +1,43 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.dashboard_layout')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
+@section('content')
+    @php
+        use App\Models\Citizen;
+        use App\Models\Lawyer;
+        use App\Models\Cases;
+        
+    @endphp
+    <main class="w-full flex-grow p-6">
+        <h1 class="text-3xl text-black pb-6">Dashboard</h1>
+
+        <div class="container flex gap-10 flex-wrap justify-center">
+            <a href="#"
+                class="text-center  block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Total Clients
+                </h5>
+                <p class=" font-normal text-gray-700 dark:text-gray-400">{{ Citizen::count() }}</p>
+            </a>
+
+            <a href="#"
+                class="text-center block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Total Lawyers
+                </h5>
+                <p class="font-normal text-gray-700 dark:text-gray-400">{{ Lawyer::count() }}</p>
+            </a>
+
+            <a href="#"
+                class="text-center block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Cases Resolved
+                </h5>
+                <p class="font-normal text-gray-700 dark:text-gray-400">50</p>
+            </a>
+
+            <a href="#"
+                class="text-center block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Total Cases
+                </h5>
+                <p class="font-normal text-gray-700 dark:text-gray-400">{{ Cases::count() }}</p>
+            </a>
         </div>
-    </div>
-</x-app-layout>
+    </main>
+@endsection
