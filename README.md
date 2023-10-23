@@ -2,6 +2,7 @@
 
 Cyber Legal Partners is an E-Governance Laravel application that aims to connect citizens with lawyers for legal advice and assistance. This application provides three distinct modes: Admin, Citizen, and Lawyers. The Admin serves as a super user, overseeing the system's operations. Citizens can file cases and hire lawyers, while Lawyers can register themselves with their verified Bar License Number.
 
+![Alt text](https://github.com/domalasherpa/ecourt/blob/main/gitassests/Screenshot%20from%202023-10-23%2013-16-57.png)
 ## Table of Contents
 
 - [Installation](#installation)
@@ -30,17 +31,21 @@ To install and set up the Cyber Legal Partners application, follow these steps:
    ```
    composer install
    ```
-   
-4. Create a copy of the `.env.example` file and rename it to `.env`. Update the configuration settings, including the database connection details and any other necessary settings.
-5. Generate an application key:
+4. Install node dependencies using nom:
+   ```
+   npm install
+   npm run dev
+   ```
+5. Create a copy of the `.env.example` file and rename it to `.env`. Update the configuration settings, including the database connection details and any other necessary settings.
+6. Generate an application key:
    ```
    php artisan key:generate
    ```
-6. Run database migrations and seed the initial data:
+7. Run database migrations and seed the initial data:
    ```
    php artisan migrate --seed
    ```
-7. Start the Laravel development server:
+8. Start the Laravel development server:
    ```
    php artisan serve
    ```
