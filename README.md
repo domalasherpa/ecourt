@@ -31,7 +31,7 @@ To install and set up the Cyber Legal Partners application, follow these steps:
    ```
    composer install
    ```
-4. Install node dependencies using nom:
+4. Install node dependencies using npm:
    ```
    npm install
    npm run dev
