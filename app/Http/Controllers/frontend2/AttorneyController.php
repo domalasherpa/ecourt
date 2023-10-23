@@ -11,6 +11,6 @@ class AttorneyController extends Controller
     public function attorney()
     {
         $lawyers = User::all();
-        return view('Attorneys', compact('lawyers'));
+        return view('attorneys', compact('lawyers'));
     }
 }
